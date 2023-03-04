@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" href="data:image/png;base64,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" type="image/icon type">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anshika Mishra</title>
+  </head>
+  <body
+    data-bs-spy="scroll"
+    data-bs-target="#toggleMobileMenu"
+    data-bs-offset="0"
+    tabindex="0"
+  >
+    <!-- ==== Header ==== -->
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-light" id="header">
+        <div class="container">
+          <a class="navbar-brand" href="">
+            <img src = "./img/logo.png" width="250px"/>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#toggleMobileMenu"
+            aria-controls="toggleMobileMenu"
+            aria-expanded="false"
+            aria-table="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="toggleMobileMenu">
+            <ul class="navbar-nav ms-lg-auto">
+              <li class="nav-item">
+                <a href="#hero" aria-current="page" class="nav-link active"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="#about" class="nav-link">About</a>
+              </li>
+              <li class="nav-item">
+                <a href="#portfolio" class="nav-link">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a href="https://drive.google.com/file/d/1K0VQBjRf56iQ5oIh6A6BrajUbtGe3nte/view" class="nav-link">Resume</a>
+              </li>
+              <li class="nav-item">
+                <a href="#contact" class="nav-link">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- ==== End Header ==== -->
+
+    <!-- ==== Hero ==== -->
+    <div id="hero">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-6 mt-lg-0 d-grid align-content-center">
+            <section
+              class="text-center text-lg-start"
+              data-aos="zoom-in"
+              data-aos-delay="1000"
+              data-aos-duration="1000"
+            >
+              <p>Hello! 👋 My name is</p>
+              <h1>ANSHIKA MISHRA</h1>
+              <p><span id="headline"></span></p>
+              <div class="social-links mx-auto mx-lg-0">
+                <div class="row">
+                  <div class="col-3">
+                    <a href="mailto:anshika.mishra1297@gmail.com" target="_blank">
+                      <i class="bi bi-envelope-fill"></i>
+                    </a>
+                  </div>
+                  <div class="col-3">
+                    <a href="https://github.com/anshika1297" target="_blank">
+                      <i class="bi bi-github"></i>
+                    </a>
+                  </div>
+                  <div class="col-3">
+                    <a
+                      href="https://www.linkedin.com/in/anshika-m-09ab97135/"
+                      target="_blank"
+                    >
+                      <i class="bi bi-linkedin"></i>
+                    </a>
+                  </div>
+                  <div class="col-3">
+                    <a href="https://twitter.com/chiyanshika" target="_blank">
+                      <i class="bi bi-twitter"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="col-12 col-lg-6 d-grid align-content-center">
+            <div
+              class="img-container"
+              id="img-wrapper"
+              data-aos="fade-left"
+              data-aos-duration="1500"
+              data-aos-delay="2000"
+            >
+              <div id="canvas"></div>
+
+              <div class="curtain">
+                <img
+                  src="./img/anshika.png"
+                  crossorigin=""
+                  data-sampler="simplePlaneTexture"
+                  width="400"
+                  height="400"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ==== End Hero ==== -->
+
+    <main>
+      <!-- ==== About ==== -->
+      <div id="about">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-lg-6 d-grid align-content-center">
+              <section
+                id="about_section"
+                class="my-5 my-lg-0"
+                data-aos="fade-right"
+                data-aos-mirror="true"
+                data-aos-duration="1500"
+              >
+                <h1>ABOUT ME</h1>
+                <p>
+                  I’m a Mobile App Developer based in Fatehpur,U.P. with Masters
+                   in Computer Applications, who likes to play with programming Languages
+                    and Frameworks to create Asthetic Looking Mobile Application and Web Application.
+                </p>
+                <p>
+                  I build Cross-Platform Mobile Applications using React Native, Firebase and Other Libraries.
+                 I also design websites using HTML, CSS, JavaScript, React.js and libraries.
+                 I am a passionate person who pursues his dreams, who works
+                  hard and constantly work on improving myself seeking to achieve the
+                  best version of myself.  
+                </p>
+                <p>
+                  In my free time you will find me Delve into the mystifying worlds of 
+                  suspense and ancient Vedic history through the pages of one or anotherbook.
+                 
+                </p>
+              </section>
+            </div>
+            <div class="col-12 col-lg-6 d-grid align-content-center">
+              <section
+                id="skills_section"
+                class="mb-5 mb-lg-0"
+                data-aos="fade-left"
+                data-aos-duration="1000"
+              >
+                <h1>SKILLS</h1>
+                <div class="row">
+                  <div class="col-6 col-md-4">
+                    <img src="./img/stack-icons/html.svg" alt="html" />
+                    <span>HTML</span>
+                  </div>
+                  <div class="col-6 col-md-4">
+                    <img src="./img/stack-icons/css.svg" alt="css" />
+                    <span>CSS</span>
+                  </div>
+                  <div class="col-6 col-md-4">
+                    <img
+                      src="./img/stack-icons/bootstrap.svg"
+                      alt="bootstrap"
+                    />
+                    <span>Bootstrap</span>
+                  </div>
+                  <div class="col-6 col-md-4">
+                    <img
+                      src="./img/stack-icons/javascript.svg"
+                      alt="javascript"
+                    />
+                    <span>JavaScript</span>
+                  </div>
+                  <div class="col-6 col-md-4">
+                    <img src="./img/stack-icons/jQuery.svg" alt="jquery" />
+                    <span>jQuery</span>
+                  </div>
+                  <div class="col-6 col-md-4">
+                    <img src="./img/stack-icons/react.svg" alt="react" />
+                    <span>React</span>
+                  </div>
+                  <div class="col-6 col-md-4">
+                    <img src="https://reactnative.dev/img/header_logo.svg" alt="reactNative" />
+                    <span>React Native</span>
+                  </div>
+                  <div class="col-6 col-md-4">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" />
+                    <span>Redux</span>
+                  </div>
+                  <div class="col-6 col-md-4">
+                    <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="Firebase" />
+                    <span>Firebase</span>
+                  </div>
+                  <div class="col-6 col-md-4">
+                    <img src="./img/stack-icons/icons8-chakra-ui-48.png" alt="Chakra UI" />
+                    <span>Chakra UI</span>
+                  </div>
+                  <div class="col-6 col-md-4">
+                    <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" />
+                    <span>Git</span>
+                  </div>
+                  <div class="col-6 col-md-4">
+                    <img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" alt="SQLite" />
+                    <span>SQLite</span>
+                  </div>
+                  
+                  
+                  
+                  
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ==== end About ==== -->
+
+      <!-- ==== Portfolio === -->
+      <section id="portfolio" class="">
+        <h1 class="mb-md-5">PROJECTS</h1>
+        <div class="container">
+          <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3 g-3">
+            <div>
+              <div class="project" data-aos="flip-up" data-aos-duration="1000">
+                <img
+                  src="./img/portfolio/Overstock.png"
+                  alt="food Odering Web App"
+                />
+                <div class="details">
+                  <div
+                    class="position-absolute top-50 start-50 translate-middle bg-accen w-100"
+                  >
+                    <p class="text-center">Online Food Odering Web App</p>
+                    <p class="text-center">Tech Stack: HTML, CSS, JS, JQuery, VSCode,Git, JSON Server,ES6+</p>
+                    <div class="links_project">
+                      <a
+                        href="https://github.com/MOHDSHABANKHAN/KFC-clone"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="source code"
+                      >
+                        <i class="bi bi-github"></i>
+                      </a>
+                      <a
+                        href="https://gilded-tapioca-ca26b0.netlify.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="live demo"
+                      >
+                        <i class="bi bi-eye-fill"></i>
+                      </a>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="project" data-aos="flip-up" data-aos-duration="1000">
+                <img
+                  src="./img/portfolio/Kfc.png"
+                  alt="Home Decor WebApp"
+                />
+                <div class="details">
+                  <div
+                    class="position-absolute top-50 start-50 translate-middle bg-accen w-100"
+                  >
+                    <p class="text-center">
+                      Ecommerce Retailer WebApp for furnitur and home decors
+                    </p>
+                    <p class="text-center">
+                      Tech Stack: HTML, CSS,JS,JQuery, Git, Local Storage, VSCode
+                    </p>
+                    <div class="links_project">
+                      <a
+                        href="https://github.com/Ajay-bhagal/team_12"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="source code"
+                      >
+                        <i class="bi bi-github"></i>
+                      </a>
+                      <a
+                        href="https://playful-starburst-806a16.netlify.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="live demo"
+                      >
+                        <i class="bi bi-eye-fill"></i>
+                      </a>
+                    </div>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="project" data-aos="flip-up" data-aos-duration="1000">
+                <img
+                  src="./img/portfolio/Hotstar.png"
+                  alt="OTT Platform WebApp"
+                />
+                <div class="details">
+                  <div
+                    class="position-absolute top-50 start-50 translate-middle bg-accen w-100"
+                  >
+                    <p class="text-center">Subscription based OTT Video Steaming WebApp</p>
+                    <p class="text-center">Tech Stack: HTML, CSS,JS, JQuery, Git, React, Redux, Chakra UI,
+                      Firebase, VSCode, ES6+</p>
+                    <div class="links_project">
+                      <a
+                        href="https://github.com/ritikraj07/Project_Disney-Hotstar.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="source code"
+                      >
+                        <i class="bi bi-github"></i>
+                      </a>
+                      <a
+                        href="https://hotstarclone07.netlify.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="live demo"
+                      >
+                        <i class="bi bi-eye-fill"></i>
+                      </a>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="project" data-aos="flip-up" data-aos-duration="1000">
+                <img
+                  src="./img/portfolio/calculator.png"
+                  alt="Calculator Android Mobile App"
+                />
+                <div class="details">
+                  <div
+                    class="position-absolute top-50 start-50 translate-middle bg-accen w-100"
+                  >
+                    <p class="text-center">Calculator Mobile App with Memory Storage Feature for Android Users</p>
+                    <p class="text-center">Tech Stack:React Native, Expo, Async Storage, VS Code</p>
+                    <div class="links_project">
+                      <a
+                        href="https://github.com/anshika1297/ReactNativeCodeRepo/tree/main/calculator"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="source code"
+                      >
+                        <i class="bi bi-github"></i>
+                      </a>
+                      <a
+                        href="https://drive.google.com/file/d/1K0VQBjRf56iQ5oIh6A6BrajUbtGe3nte/view"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="live demo"
+                      >
+                        <i class="bi bi-eye-fill"></i>
+                      </a>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+
+            
+
+            
+          </div>
+        </div>
+      </section>
+      <!-- ==== End Portfolio === -->
+<br><br><br>
+
+
+<section id="portfolio" class="">
+  <h1 class="mb-md-5">Github Contribution</h1>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3 g-3">
+      <div>
+        <div class="project" data-aos="flip-up" data-aos-duration="1000">
+          <p align="center"><img align="center" width="100%" src="https://github-readme-streak-stats.herokuapp.com/?user=anshika1297&show_icons=true&locale=en&theme=tokyonight" alt="anshika1297" /></p>
+          </div>
+          </div>
+          <div>
+          <div class="project" data-aos="flip-up" data-aos-duration="1000">
+            <p align="center" style="margin-top:-25px;">&nbsp;<img  align="center" width="100%" style="height:180px" src="https://github-readme-stats.vercel.app/api?username=anshika1297&show_icons=true&locale=en&theme=tokyonight" alt="anshika1297" /></p>
+            </div>
+          </div>
+         
+          </div>
+          </div>
+          </section>
+      <!-- === Contact ====  -->
+      <div id="contact">
+        <section>
+          <div class="container">
+            <h1>CONTACT ME</h1>
+            <div class="row">
+              <div
+                class="hello mb-4 mb-lg-0 col-12 col-lg-4 d-grid align-content-center"
+                data-aos="fade-right"
+                data-aos-duration="1000"
+              >
+                <span>Let's connect</span>
+                <p>
+                  Have cool idea for new project? want to build a Mobile App? you
+                  have a question? don't hesitate to contact me.
+                </p>
+
+                <div class="mt-5 more_info">
+                  <p>
+                    <i class="bi bi-geo-alt text-accent me-2 fs-5"></i>
+                    Uttar Pradesh, India
+                  </p>
+
+                  <p>
+                    <i class="bi bi-envelope-fill text-accent me-2 fs-5"></i>
+                    anshika.mishra1297@gmail.com
+                  </p>
+
+                  <p style="font-family: sans-serif">
+                    <i class="bi bi-telephone-fill text-accent me-2 fs-5"></i>
+                    +91 7080 7693 04
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="contact_form col-12 col-lg-8 d-grid align-content-center"
+              >
+                <form
+                  action=""
+                  id="contact_form"
+                  name="portfolio_form"
+                  data-aos="fade-left"
+                  data-aos-duration="1000"
+                >
+                  <div class="row">
+                    <div class="col-12 col-lg-6">
+                      <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        placeholder="Your Name"
+                        class="form-control"
+                        required
+                      />
+                      <div class="invalid-feedback small_label">
+                        Please enter at least 2 character
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 mt-3 mt-lg-0">
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Your Email"
+                        class="form-control"
+                        required
+                      />
+                      <div class="invalid-feedback small_label">
+                        Please enter a valid email
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-12 mt-3">
+                      <input
+                        type="text"
+                        name="subject"
+                        id="subject"
+                        placeholder="Subject"
+                        class="form-control"
+                        required
+                      />
+                      <div class="invalid-feedback small_label">
+                        Please enter a subject
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-12 mt-3">
+                      <textarea
+                        name="message"
+                        id="message"
+                        placeholder="Message"
+                        class="form-control"
+                        rows="5"
+                        maxlength="400"
+                        style="max-height: 300px"
+                        required
+                      ></textarea>
+                      <div class="invalid-feedback small_label">
+                        Please enter more than 5 word
+                      </div>
+                      <div
+                        class="valid-feedback text-end"
+                        style="font-family: sans-serif"
+                      ></div>
+                    </div>
+                    <!-- <div class="mt-3"></div> -->
+                    <div class="col-12 mt-3">
+                      <p class="thanks">Thank you. I will reply soon.</p>
+                    </div>
+                    <div class="mt-3 text-center text-lg-end">
+                      <button
+                        class="btn rounded-pill bg-accent text-white mx-auto"
+                        type="submit"
+                        id="send"
+                        disabled
+                      >
+                        Send Message
+                      </button>
+                    </div>
+                    <div
+                      class="spinner-border text-accent mx-auto"
+                      role="status"
+                    >
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- ==== End Contact ====  -->
+    </main>
+
+    <!-- ==== Start footer ====  -->
+    <footer id="footer">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-lg-2">
+          <p>
+            Made with ❤️ by
+            <a href="https://www.linkedin.com/in/anshika-m-09ab97135/">Anshika Mishra</a>
+          </p>
+
+          <div class="text-center text-lg-end">
+            <a href="https://twitter.com/chiyanshika" target="_blank">
+              <i class="bi bi-twitter"></i>
+            </a>
+
+            <a href="https://github.com/anshika1297" target="_blank">
+              <i class="bi bi-github"></i>
+            </a>
+
+            <a href="https://linkedin.com/in/anshika-m-09ab97135" target="_blank">
+              <i class="bi bi-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- ==== End footer ====  -->
+
+    <!-- ==== Dark/Light mode button === -->
+    <button id="theme">
+      <i class="bi bi-moon-fill"></i>
+      <i class="bi bi-brightness-high-fill"></i>
+    </button>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
